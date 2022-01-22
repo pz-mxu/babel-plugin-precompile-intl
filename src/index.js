@@ -18,12 +18,12 @@ const PLURAL_ABBREVIATIONS = {
   other: 'h'
 };
 
-module.exports = function build(runtimeImportPath = "precompile-intl-runtime") {
-  return declare((api, options) => {
+module.exports = declare((api, options) => {
     api.assertVersion("^7.0");
     let usedHelpers = new Set();
     let currentFunctionParams = new Set();
     let pluralsStack = [];
+    const runtimeImportPath = "precompile-intl-runtime"
 
     function normalizePluralKey(key) {
       key = key.trim();
@@ -226,4 +226,3 @@ module.exports = function build(runtimeImportPath = "precompile-intl-runtime") {
       }
     };
   });
-};
